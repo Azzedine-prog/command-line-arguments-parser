@@ -29,9 +29,9 @@ c command line parser project
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Azzedine-prog/command-line-arguments-parser">
+  <!--<a href="https://github.com/Azzedine-prog/command-line-arguments-parser">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a>-->
 
   <h3 align="center">Command line argument parser</h3>
 
@@ -132,7 +132,7 @@ Distributed under the GNU License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-AZZEDINE LAKHDAR - [@your_twitter](https://twitter.com/azzedinelakhdar) - aazzedinelakhdar@gmail.com
+AZZEDINE LAKHDAR - [@AZZEDINE_AT_TWITTER](https://twitter.com/azzedinelakhdar) - aazzedinelakhdar@gmail.com
 
 Project Link: [https://github.com/Azzedine-prog/command-line-arguments-parser](https://github.com/Azzedine-prog/command-line-arguments-parser)
 
