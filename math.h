@@ -1,0 +1,1 @@
+int po_w(int base,int power);
