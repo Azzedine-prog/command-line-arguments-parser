@@ -7,6 +7,19 @@
 #ifndef NODE
 #define NODE 1
 #include "boolean-lib.h"
+/**************************************************************
+*   you can read the readme for more documents .
+*	this library is just made by me (amateur) not that professional 
+*	feel free to contribute or suggest or help when you find any 
+*	fix or upgrade for this modest project .
+*	
+*	author : AZZEDINE LAKHDAR
+*	 EMBEDDED SYSTEMS student 
+*		8/7/2021
+*						thanks for using this .    .
+											   .  .
+											    ..
+*****************************************************************/
 typedef enum action_type{
 INT,BOOL,FLOAT,CHAR
 }action_type;

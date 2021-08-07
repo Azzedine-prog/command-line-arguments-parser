@@ -3,7 +3,19 @@
 #include "parser.h"
 #include "string.h"
 #include "linked-list.h"
-
+/**************************************************************
+*   you can read the readme for more documents .
+*	this library is just made by me (amateur) not that professional 
+*	feel free to contribute or suggest or help when you find any 
+*	fix or upgrade for this modest project .
+*	
+*	author : AZZEDINE LAKHDAR
+*	 EMBEDDED SYSTEMS student 
+*		8/7/2021
+*						thanks for using this .    .
+											   .  .
+											    ..
+*****************************************************************/
 linked_list_string* argument_init(){
     linked_list_string* new_list = malloc(sizeof(linked_list_string));
     init_linked_list_string(new_list);

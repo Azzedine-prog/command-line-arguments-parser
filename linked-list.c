@@ -2,6 +2,19 @@
 #include <stdlib.h>
 #include "linked-list.h"
 #include "string.h"
+/**************************************************************
+*   you can read the readme for more documents .
+*	this library is just made by me (amateur) not that professional 
+*	feel free to contribute or suggest or help when you find any 
+*	fix or upgrade for this modest project .
+*	
+*	author : AZZEDINE LAKHDAR
+*	 EMBEDDED SYSTEMS student 
+*		8/7/2021
+*						thanks for using this .    .
+											   .  .
+											    ..
+*****************************************************************/
 void init_linked_list_string(linked_list_string* my_linked_list){
     /*my_linked_list->head = malloc(sizeof(node_string));
     my_linked_list->tail = malloc(sizeof(node_string));
