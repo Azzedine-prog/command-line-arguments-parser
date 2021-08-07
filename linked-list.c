@@ -49,15 +49,15 @@ void print_linked_list_string(linked_list_string* my_linked_list){
     printf("this is a help about this program showed if arg is -h or --help\n");
     for(i=0;i<(my_linked_list->len);i++){
         if(tmp->type == INT)
-        printf("\t %s : --%s [integer] or -%s [integer]\n",tmp->detail,tmp->self,tmp->short_self);
-        if(tmp->type == CHAR)
-        printf("\t %s : --%s [string] or -%s [string]\n",tmp->detail,tmp->self,tmp->short_self);
-        if(tmp->type == BOOL)
-        printf("\t %s : --%s or -%s\n",tmp->detail,tmp->self,tmp->short_self);
+        printf("\t--> %s : --%s [integer] or -%s [integer]\n",tmp->detail,tmp->self,tmp->short_self);
+        else if(tmp->type == CHAR)
+        printf("\t--> %s : --%s [string] or -%s [string]\n",tmp->detail,tmp->self,tmp->short_self);
+        else if(tmp->type == BOOL)
+        printf("\t--> %s : --%s or -%s\n",tmp->detail,tmp->self,tmp->short_self);
         //printf("%s | ",tmp->self);
         tmp = tmp->next;
     }
-    printf("\n");
+    //printf("\n");
 
 }
 void init_node(node_string* mynode){
@@ -97,6 +97,13 @@ int create_node_with_help_and_action(node_string* tmp,char* self,char* short_sel
     tmp->detail = malloc(SIZE_DETAIL*sizeof(char));
     //tmp->action = action;
     tmp->type = type;
+	tmp->status = False;
+    tmp->required = required;
+    str_cp(tmp->short_self,short_self);
+    str_cp(tmp->self,self);
+    str_cp(tmp->detail,detail);
+    tmp->data_fullness = 4;
+    tmp->index = 0;
     if(type == INT){
         if(action_int)
         tmp->action_int = action_int;
@@ -117,23 +124,18 @@ int create_node_with_help_and_action(node_string* tmp,char* self,char* short_sel
     }
     else 
         return 0;
-    tmp->status = False;
-    tmp->required = required;
-    str_cp(tmp->short_self,short_self);
-    str_cp(tmp->self,self);
-    str_cp(tmp->detail,detail);
-    tmp->data_fullness = 4;
-    tmp->index = 0;
     return 1;
 }
 node_string* get_node_by_self(char* self,linked_list_string* mylist){
     node_string* tmp = mylist->head;
-    while(tmp->next != mylist->head){
+	int i = 0;
+    while(i<(mylist->len)){
         if((str_cmp(tmp->self,self) == 1) || (str_cmp(tmp->short_self,self) == 1)){
             //printf("i have found it\n");
             return tmp;
         }
         tmp = tmp->next;
+		i++;
     }
     return NULL;
 }
