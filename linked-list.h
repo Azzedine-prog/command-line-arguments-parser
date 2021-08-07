@@ -34,6 +34,9 @@ typedef struct node_string{
     void (*action_char)(char*);
     void (*action_bool)(void);
     bool status;
+    int int_value;
+    char* string;
+    bool bool_value;
     int index;
     action_type type;
 }node_string;

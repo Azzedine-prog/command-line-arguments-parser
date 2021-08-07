@@ -43,19 +43,29 @@ int manage_arguments(int argc,char** argv,linked_list_string* my_arguments){
 		print_linked_list_string(my_arguments);
 		return 1;
 	}
+    int argument_number_with_parameter=0;
     node_string* tmp = my_arguments->head;
 	for(int i =0;i<(my_arguments->len);i++){
 		for(int j=0;j<argc;j++){
 			//printf("--> %s\n",argv[i]+2);
-			if(str_cmp((argv[j])+2,tmp->self)==1){
+			if((str_cmp((argv[j])+2,tmp->self)==1) || (str_cmp((argv[j])+1,tmp->short_self)==1) ){
 				//printf("--> %s\n",(argv[j])+2);
 				tmp->index = j;
                 tmp->status = True;
+                if((tmp->type == INT) || tmp->type == CHAR)
+                    argument_number_with_parameter = argument_number_with_parameter +2;
+                else 
+                    argument_number_with_parameter = argument_number_with_parameter +1;
 				//printf("hell yeah\n");
 			}
 		}
 		tmp = tmp->next;
 	}
+    if(argc != (argument_number_with_parameter+1)){
+        printf("\t some arguments need paramaters \n");
+        print_linked_list_string(my_arguments);
+        return 1;
+    }
     tmp = my_arguments->head;
     for(int i=0;i<my_arguments->len;i++){
     if(tmp->required == 1){
@@ -73,15 +83,18 @@ int manage_arguments(int argc,char** argv,linked_list_string* my_arguments){
 		//printf("index : %d \n",tmp->index);
 		if(((tmp->index) != 0) && ((tmp->data_fullness) == 4)){
             if(tmp->type == INT){
-			(*(tmp->action_int))(((string_to_int(argv[(tmp->index)+1]))));
+			    (*(tmp->action_int))(((string_to_int(argv[(tmp->index)+1]))));
+                tmp->int_value = string_to_int(argv[(tmp->index)+1]);
 			//printf("hooyah : %s\n",(argv[(tmp->index)+1]));
             }
             if(tmp->type == CHAR){
-			(*(tmp->action_char))(argv[(tmp->index)+1]);
+			    (*(tmp->action_char))(argv[(tmp->index)+1]);
+                tmp->string = argv[(tmp->index)+1];
 			//printf("hooyah : %s\n",(argv[(tmp->index)+1]));
             }
             if(tmp->type == BOOL){
-			(*(tmp->action_bool))();
+                (*(tmp->action_bool))();
+                tmp->bool_value = True;
 			//printf("hooyah :\n");
             }
 		}

@@ -129,8 +129,8 @@ int create_node_with_help_and_action(node_string* tmp,char* self,char* short_sel
 node_string* get_node_by_self(char* self,linked_list_string* mylist){
     node_string* tmp = mylist->head;
     while(tmp->next != mylist->head){
-        if(str_cmp(tmp->self,self) == 1){
-            printf("i have found it\n");
+        if((str_cmp(tmp->self,self) == 1) || (str_cmp(tmp->short_self,self) == 1)){
+            //printf("i have found it\n");
             return tmp;
         }
         tmp = tmp->next;

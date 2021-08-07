@@ -33,6 +33,9 @@ int main(int argc,char**argv){
 	add_argument_with_help_and_action("add","a",0,INT,"this is for adding",&add,NULL,NULL,my_arguments);
 	add_argument_with_help_and_action("version","v",0,BOOL,"this is for version",NULL,NULL,&version,my_arguments);
 	add_argument_with_help_and_action("name","n",0,CHAR,"this is for printing name",NULL,&fun,NULL,my_arguments);
-	manage_arguments(argc,argv,my_arguments);
+	if(manage_arguments(argc,argv,my_arguments) != 0){
+		return 1;
+	}
+
 	
 }
