@@ -1,8 +1,8 @@
 CC=gcc
 FLAG=-Wall
-parser-project.exe:
-	$(CC) $(FLAG) parser-project.c -o parser-project.exe
+parser.exe:
+	$(CC) $(FLAG) parser.c test.c -o parser.exe
 clean:
-	 [ -e  parser-project.exe ] && rm -f parser-project.exe
-run:parser-project.exe
-	./parser-project.exe
+	 rm -f parser-project.exe
+run:parser.exe
+	parser.exe
